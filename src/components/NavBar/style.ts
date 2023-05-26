@@ -8,6 +8,7 @@ const NavBarWrapper = styled.div`
   align-items: center;
   padding: 0.5rem 0;
   position: fixed;
+  z-index: 99;
   h1 {
     font-size: 1.2rem;
     font-weight: 600;
