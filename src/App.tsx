@@ -1,5 +1,7 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+
+import AppWrapper from './style'
 // 组件
 import NavBar from '@/components/NavBar/NavBar'
 import HomeBg from '@/components/HomeBg/HomeBg'
@@ -18,11 +20,11 @@ interface IProps {
 
 const App: FC<IProps> = () => {
   return (
-    <div className="App">
+    <AppWrapper className="App">
       <NavBar config={navBarConfig} />
       <HomeBg img={bg} info={info} />
       <ContentList data={data} />
-    </div>
+    </AppWrapper>
   )
 }
 
