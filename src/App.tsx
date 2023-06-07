@@ -9,6 +9,8 @@ import navBarConfig from './global/navbar.config'
 // 背景图
 import bg from '@/assets/img/bg.jpg'
 import info from '@/global/bg.config'
+// 数据
+import data from '@/global/test.data'
 
 interface IProps {
   children?: ReactNode
@@ -19,7 +21,7 @@ const App: FC<IProps> = () => {
     <div className="App">
       <NavBar config={navBarConfig} />
       <HomeBg img={bg} info={info} />
-      <ContentList />
+      <ContentList data={data} />
     </div>
   )
 }
