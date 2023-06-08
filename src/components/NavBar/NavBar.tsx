@@ -6,6 +6,8 @@ import type { INavBarConfig } from '@/global/navbar.config'
 // icon
 import MenuIcon from '@mui/icons-material/Menu'
 import ClearIcon from '@mui/icons-material/Clear'
+import { NavLink } from 'react-router-dom'
+import classNames from 'classnames'
 
 interface IProps {
   children?: ReactNode
@@ -21,13 +23,19 @@ const NavBar: FC<IProps> = (props) => {
       <div className="menu" onClick={() => setIsShow(!isShow)}>
         {isShow ? <ClearIcon /> : <MenuIcon />}
       </div>
-      <div className={isShow ? 'navBar active' : 'navBar'}>
+      <div className={classNames('navBar', { menuItem: isShow })}>
         {config.map((item) => {
           return (
-            <div className="item" key={item.path}>
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? 'active item' : 'item'
+              }}
+              key={item.path}
+              to={item.path}
+            >
               {item.icon}
               <span className="name">{item.name}</span>
-            </div>
+            </NavLink>
           )
         })}
       </div>
