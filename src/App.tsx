@@ -1,13 +1,15 @@
-import React, { memo } from 'react'
+import React, { Suspense, memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import { useRoutes } from 'react-router-dom'
+import AppWrapper from './style'
 // 组件
 import NavBar from '@/components/NavBar/NavBar'
+
 // navbar配置
 import navBarConfig from './global/navbar.config'
-import HomeBg from '@/components/HomeBg/HomeBg'
-// 背景图
-import bg from '@/assets/img/bg.jpg'
-import info from '@/global/bg.config'
+
+// 路由
+import routes from '@/router/index'
 
 interface IProps {
   children?: ReactNode
@@ -15,10 +17,10 @@ interface IProps {
 
 const App: FC<IProps> = () => {
   return (
-    <div className="App">
+    <AppWrapper className="App">
       <NavBar config={navBarConfig} />
-      <HomeBg img={bg} info={info} />
-    </div>
+      <Suspense fallback="Loading...">{useRoutes(routes)}</Suspense>
+    </AppWrapper>
   )
 }
 
