@@ -33,6 +33,9 @@ const NavBarWrapper = styled.div`
       background-color: rgba(255, 255, 255, 0.5);
     }
   }
+  .active {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
   .name {
     padding: 0 0.2rem;
   }
@@ -58,10 +61,13 @@ const NavBarWrapper = styled.div`
       opacity: 0;
       transition: all 0.5s ease;
     }
-    .active {
+    .menuItem {
       top: 100%;
       opacity: 1;
       transition: all 0.5s ease;
+    }
+    .active {
+      background: none;
     }
   }
 `
